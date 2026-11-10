@@ -1,0 +1,15 @@
+import { mkdir, writeFile } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const app = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const evidence = path.join(app, '.local', 'evidence');
+await mkdir(evidence, { recursive: true });
+const name = process.argv[2] ?? 'tools/list';
+const argumentsValue = process.argv[3] ? JSON.parse(process.argv[3]) : {};
+const request = name === 'tools/list' ? { jsonrpc: '2.0', id: 1, method: name } : { jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name, arguments: argumentsValue } };
+const response = await fetch('http://127.0.0.1:3100/_next/mcp', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json, text/event-stream' }, body: JSON.stringify(request) });
+const text = await response.text();
+const jsonLine = text.split('\n').find((line) => line.startsWith('data: '));
+const result = JSON.parse(jsonLine ? jsonLine.slice(6) : text);
+await writeFile(path.join(evidence, `next-${name.replace(/[^a-zA-Z0-9_-]/g, '-')}.json`), JSON.stringify({ timestamp: new Date().toISOString(), httpStatus: response.status, result }, null, 2));
+console.log(JSON.stringify(result, null, 2));

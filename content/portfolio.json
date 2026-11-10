@@ -1,0 +1,164 @@
+{
+  "profile": {
+    "name": "Surjeet",
+    "role": "Full-stack developer · AI-assisted workflows",
+    "headline": "Code that solves real problems.",
+    "intro": "I’m Surjeet, a developer and BCA student based in New Delhi. I build web applications, mobile tools, and practical automation—with clear interfaces and implementation details that hold up beyond the demo.",
+    "availability": "Open to junior full-stack, frontend developer, and software engineering trainee roles.",
+    "location": "New Delhi, India",
+    "edition": "2026",
+    "email": "codieshiv.web@gmail.com",
+    "phone": "+91 9266023517",
+    "github": "https://github.com/surjeet-web",
+    "linkedin": "https://www.linkedin.com/in/codieshiv0",
+    "portfolio": "https://surjeet-portfolio.codieshiv-web.workers.dev",
+    "resumePath": "/Surjeet_Full_Stack_Resume.pdf",
+    "seoTitle": "Surjeet — Full-Stack Developer | React, TypeScript & Practical Automation",
+    "seoDescription": "Surjeet is a New Delhi-based developer building full-stack applications, local-first tools, and AI-assisted workflows. Explore selected projects and experience."
+  },
+  "projects": [
+    {
+      "id": "workforce-payroll",
+      "title": "Workforce & Payroll Management Prototype",
+      "tagline": "Making complex HR processes easier to follow.",
+      "category": "Full-stack business application",
+      "visibility": "private",
+      "status": "Prototype",
+      "featured": true,
+      "stack": ["React", "TypeScript", "Vite", "NestJS", "Prisma"],
+      "summary": "A workforce-management prototype with a modular backend and database-backed payroll and employee-loan workflows. Business actions are connected to explicit, persisted states.",
+      "problem": "Payroll work involves calculations, review, approval and publication. A polished interface cannot replace a clear model of those steps.",
+      "highlights": [
+        "Payroll runs move through draft, calculated, validated, approved and finalized stages.",
+        "Finalization publishes payslips through service-layer logic.",
+        "Employee-loan workflows validate amounts and tenure, calculate installments and persist approval records.",
+        "The modular NestJS application registers JWT, roles and throttling guards."
+      ],
+      "engineeringFocus": "Typed interfaces, service-layer state transitions and persisted business rules.",
+      "scopeNote": "A prototype, not a production-security or payroll-compliance certification. Tenancy, transactions, calculation rules and test depth require further hardening.",
+      "sourceLabel": "Private source — high-level overview only",
+      "cta": {"label": "Discuss this project", "href": "/contact?project=workforce-payroll"}
+    },
+    {
+      "id": "offline-finance",
+      "title": "Offline-First Personal Finance App",
+      "tagline": "Everyday money workflows, without relying on a cloud connection.",
+      "category": "Local-first mobile application",
+      "visibility": "private",
+      "status": "Local-first application",
+      "featured": true,
+      "stack": ["React Native", "Expo", "TypeScript", "SQLite", "Zustand"],
+      "summary": "A mobile finance application with local transaction storage, search, expense splitting and statement reconciliation. Its core logic treats money as structured data, not just a number on a screen.",
+      "problem": "Transactions become difficult to manage when notes, split amounts and bank statements live in different places. A local-first application keeps those workflows together.",
+      "highlights": [
+        "Relational SQLite storage uses foreign keys, indexes, parameterized queries and FTS5 search.",
+        "Expense splits are validated against the transaction total with exact-cent handling.",
+        "CSV statement imports feed a reconciliation workflow that generates candidate transaction matches.",
+        "Unit-test source covers split rounding, validation, reconciliation and tolerance boundaries."
+      ],
+      "engineeringFocus": "Financial edge cases, local persistence, search and testable domain logic.",
+      "scopeNote": "Not a cloud banking service or collaborative SaaS. Local PIN/biometric locking is not server authentication. Tests were inspected, not executed during project selection.",
+      "sourceLabel": "Private source — high-level overview only",
+      "cta": {"label": "Discuss this project", "href": "/contact?project=offline-finance"}
+    },
+    {
+      "id": "diskdoom",
+      "title": "DiskDoom",
+      "tagline": "Finding where disk space goes, with controls for how the work gets done.",
+      "category": "Native utility and backend service",
+      "visibility": "public",
+      "status": "Development project",
+      "featured": true,
+      "stack": ["Swift", "CryptoKit", "TypeScript", "Cloudflare Workers", "Durable Objects"],
+      "summary": "A native macOS disk-analysis project with staged duplicate detection and a separate licensing backend. It combines filesystem work, resource-aware scanning and a stateful TypeScript service.",
+      "problem": "A useful disk scanner needs cancellation, exclusions, limits and meaningful partial results. Large directory trees and duplicate files require more than attractive visualizations.",
+      "highlights": [
+        "Cancellable scans include exclusions, scan budgets, cycle detection and partial-result reporting.",
+        "Duplicate detection narrows candidates by size, samples content and performs chunked full-file SHA-256 hashing.",
+        "Cached hashes can be reused instead of repeating work.",
+        "A Cloudflare Durable Object manages activation slots, throttling, deactivation and revocation.",
+        "Worker tests cover token validation, tampering and expiry; native scan and safety test sources are also present."
+      ],
+      "engineeringFocus": "Filesystem behavior, staged processing, native development and explicit service state.",
+      "scopeNote": "No verified macOS release, performance benchmark, cleanup-safety certification or production-user claim. Test sources were reviewed, not executed here.",
+      "sourceLabel": "Public repository",
+      "repositoryUrl": "https://github.com/surjeet-web/DiskDoom",
+      "cta": {"label": "View repository", "href": "https://github.com/surjeet-web/DiskDoom"}
+    },
+    {
+      "id": "code-snippet-manager",
+      "title": "Code Snippet Manager",
+      "tagline": "The useful bits of code, organized where you work.",
+      "category": "Frontend developer tool",
+      "visibility": "public",
+      "status": "Browser-local application",
+      "featured": true,
+      "stack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "localStorage"],
+      "summary": "A browser-local workspace for creating and finding multi-block code snippets, with persistent organization and combined filters—without a server-backed account system.",
+      "problem": "Reusable code loses its value when it is hard to find. Snippets need searchable content and clear organization, not just a list of saved text.",
+      "highlights": [
+        "Create snippets containing multiple named code blocks and organize them into workspaces.",
+        "Combine text and code search with language, tags, workspaces and favorites filters.",
+        "Persist snippets, workspaces and filter preferences in localStorage after hydration.",
+        "Favorite or delete entries through the application interface."
+      ],
+      "engineeringFocus": "Reusable hooks, client-side data handling and hydration-aware persistence.",
+      "scopeNote": "A frontend/localStorage application, not an AI, authentication or cloud-database product. No capacity or speed benchmark is asserted.",
+      "sourceLabel": "Public repository",
+      "repositoryUrl": "https://github.com/surjeet-web/Code-Snippet-Manager",
+      "cta": {"label": "View repository", "href": "https://github.com/surjeet-web/Code-Snippet-Manager"}
+    },
+    {
+      "id": "field-service",
+      "title": "Local-First Field Service App",
+      "tagline": "Keeping jobs, time and payment records connected.",
+      "category": "Mobile business application",
+      "visibility": "private",
+      "status": "Local-first prototype",
+      "featured": true,
+      "stack": ["React Native", "Expo", "TypeScript", "SQLite", "Zustand"],
+      "summary": "A field-service mobile application with persisted job, dispatch, time-entry and invoice-linked payment workflows. Operational details stay connected around each job.",
+      "problem": "A job involves more than a status label. Assignments, time, activity and payment records need to stay connected as work progresses.",
+      "highlights": [
+        "Persist job assignments, status changes, dispatch records and time entries in SQLite.",
+        "Record activity history alongside job transitions.",
+        "Track invoice-linked payments and calculate remaining balances.",
+        "Use a persisted local work queue with retry and backoff logic."
+      ],
+      "engineeringFocus": "Mobile workflow modeling, linked records and recoverable local task handling.",
+      "scopeNote": "Local role selection is not server-enforced authentication; payment recording is not payment processing. Cloud sync and production multitenancy are not claimed.",
+      "sourceLabel": "Private source — high-level overview only",
+      "cta": {"label": "Discuss this project", "href": "/contact?project=field-service"}
+    }
+  ],
+  "about": {
+    "heading": "I build with the user on the other side in mind.",
+    "paragraphs": [
+      "I’m Surjeet, a developer based in New Delhi and currently pursuing a BCA at Shoolini University. My work spans full-stack applications, local-first mobile tools and practical automation.",
+      "At IQSetters, I worked as a full-stack developer intern using NestJS, React and PostgreSQL. I also built MCP integrations and custom Claude skills for team workflows.",
+      "Before that, I built a WooCommerce store for electronics components while handling technical support. I have also worked in sales and recovery, maintaining CRM records and following up with customers.",
+      "That mix keeps me focused on the work around a product: who needs an answer, what happens when something fails, and what information someone needs to take the next step.",
+      "I use AI tools to support development, then check and improve the result. My focus is targeted prompts, reusable workflows and choosing a suitable tool for the task."
+    ]
+  },
+  "experience": [
+    {"company":"IQSetters","role":"Full-Stack Developer Intern","dates":"Dec 2025 – Jun 2026","location":"Delhi, India · Hybrid","summary":"Contributed to an HRM platform using NestJS, React and PostgreSQL. Built custom MCP servers and Claude skills for team-specific workflows and matched model families to task needs."},
+    {"company":"Shyam Technical","role":"Customer Service & WordPress Developer","dates":"Aug 2024 – Jun 2025","location":"Delhi, India","summary":"Built a WooCommerce storefront for electronics components and handled technical support through Zendesk and Freshdesk, with order follow-ups by phone, email and WhatsApp."},
+    {"company":"Offshoot Financial Services","role":"Sales & Recovery Agent","dates":"Jun 2026 – Aug 2026","location":"Delhi, India","summary":"Made outbound financial-product and overdue-account calls, maintained CRM records and escalated cases when needed."}
+  ],
+  "capabilities": [
+    {"title":"Full-stack applications","summary":"React and Next.js interfaces backed by Node.js/NestJS services and structured data, connecting usable screens with the business rules behind them.","tags":["React","Next.js","NestJS","PostgreSQL"]},
+    {"title":"Local-first tools","summary":"Browser and mobile applications with local persistence, search and import workflows, and clear limits on what is synchronized.","tags":["React Native","SQLite","localStorage"]},
+    {"title":"AI-assisted development","summary":"MCP integrations, custom skills and repeatable AI workflows for implementation and investigation, without unmeasured speed promises.","tags":["Claude Code","MCP","n8n"]},
+    {"title":"E-commerce workflows","summary":"WordPress and WooCommerce builds informed by practical support experience, including catalogs, checkout, technical questions and follow-up.","tags":["WooCommerce","WordPress","Customer support"]}
+  ],
+  "contact": {
+    "heading":"Let’s build something useful.",
+    "paragraphs":[
+      "I’m looking for a team where I can contribute to real software, learn from experienced developers and take ownership of well-defined work.",
+      "If you’re hiring for a junior developer or trainee role, I’d be glad to talk."
+    ],
+    "primaryLabel":"Start a conversation",
+    "primaryHref":"mailto:codieshiv.web@gmail.com"
+  }
+}

@@ -34,7 +34,7 @@ export const contact = source.contact;
 export const experience = source.experience;
 export const getProject = (slug: string) => projects.find((project) => project.slug === slug);
 export const resumePath = source.profile.resumePath;
-export const personalRoutes = ['/', '/about', '/services', '/experience', '/work', '/contact', '/privacy', ...projects.map((project) => `/work/${project.slug}`)];
+export const personalRoutes = ['/', '/about', '/services', '/experience', '/ai-design', '/work', '/contact', '/privacy', ...projects.map((project) => `/work/${project.slug}`)];
 
 export const aboutFaqs = [
   { question: 'What kind of role are you looking for?', answer: 'Junior full-stack roles and trainee cloud engineering opportunities where I can contribute my internship and project experience while learning from experienced teammates.' },

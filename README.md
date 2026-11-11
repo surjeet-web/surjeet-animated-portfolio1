@@ -31,6 +31,7 @@ Dev and production both use loopback port 3100; stop one before starting the oth
 - Full case studies with implementation highlights, technology, and honest scope notes.
 - Public GitHub links only; private projects have generic descriptions and no source disclosure.
 - IQSetters full-stack internship only; BCA education and supplied achievements.
+- Dedicated AI-assisted UI/UX workflow: ChatGPT for brief/critique support, three linked Stitch concept workspaces, and a curated gallery covering mobile flows, landing pages, icon systems, and asset studies.
 - Downloadable supplied résumé at `/Surjeet_Resume.pdf`; the previous résumé URL redirects here.
 - Email, GitHub, LinkedIn and copy-email contact actions. No form backend or automatic submissions.
 
@@ -46,7 +47,7 @@ Previous agency-only components, data, client media, and the mock form were remo
 
 ## Routes
 
-Home `/`, projects `/work`, five `/work/[slug]` case studies, `/about`, `/services` (capabilities), `/experience`, `/contact`, `/privacy`: **12 content routes**.
+Home `/`, projects `/work`, five `/work/[slug]` case studies, `/about`, `/services` (skills), `/experience`, `/ai-design` (AI-assisted UI/UX workflow), `/contact`, `/privacy`: **13 content routes**.
 
 ## Editing
 
@@ -57,7 +58,10 @@ Home `/`, projects `/work`, five `/work/[slug]` case studies, `/about`, `/servic
 - `components/widgets/contact-links.tsx`: direct contact controls.
 - `styles/personal.css`: personal typography/layout adjustments over the retained animation-led design system.
 - `content/skills.ts` and `components/sections/skills-stack.tsx`: explicit tech stack and current learning focus.
+- `content/ai-design.ts` and `components/sections/ai-design-workflow.tsx`: source-backed workflow copy, Stitch links, and curated UI explorations.
+- `public/assets/uiux/`: ten selected, flattened workflow boards supplied by the owner; treat them as design explorations, not implemented-product screenshots.
 - `styles/focused-home.css`: simplified homepage layout.
+- `styles/ai-design.css`: workflow steps, visual gallery, and Stitch-study layout.
 - `public/Surjeet_Resume.pdf`: current supplied résumé download.
 
 ## Verify

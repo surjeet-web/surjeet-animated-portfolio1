@@ -16,6 +16,7 @@ import '@/styles/experience.css';
 import '@/styles/immersive.css';
 import '@/styles/personal.css';
 import '@/styles/focused-home.css';
+import '@/styles/ai-design.css';
 
 const plex = localFont({ src: '../public/assets/fonts/IBMPlexSans-VF-s1.woff2', variable: '--font-sans', weight: '100 700', display: 'swap', fallback: ['Arial'] });
 const nauryz = localFont({ src: '../public/assets/fonts/NauryzRedKeds-s1.woff2', variable: '--font-character', weight: '400', display: 'swap' });

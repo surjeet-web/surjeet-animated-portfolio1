@@ -6,7 +6,7 @@ const app = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const evidence = path.join(app, '.local', 'evidence');
 await mkdir(evidence, { recursive: true });
 const content = JSON.parse(await readFile(path.join(app, 'content/portfolio.json'), 'utf8'));
-const routes = ['/', '/about', '/services', '/experience', '/contact', '/privacy', '/work', ...content.projects.map(project => `/work/${project.id}`)];
+const routes = ['/', '/about', '/services', '/experience', '/ai-design', '/contact', '/privacy', '/work', ...content.projects.map(project => `/work/${project.id}`)];
 const base = process.env.CHECK_URL ?? 'http://127.0.0.1:3100';
 const visit = (node, fn) => { fn(node); for (const child of node.childNodes ?? []) visit(child, fn); };
 const text = node => node.nodeName === '#text' ? node.value : (node.childNodes ?? []).map(text).join('');
@@ -35,6 +35,7 @@ for (const route of routes) {
   const bodyText = main ? text(main) : '';
   if (/Crency|HikeMind|GivTrade|My Hair PL|hello@crency/.test(bodyText)) issues.push({ route, type: 'agency-content' });
   if (/Offshoot|Shyam Technical|customer support|technical support|sales calling/i.test(bodyText)) issues.push({ route, type: 'removed-experience' });
+  if (route === '/ai-design' && (!bodyText.includes('ChatGPT') || !bodyText.includes('Stitch') || !bodyText.includes('AI helps me explore') || !bodyText.includes('not shipped-product screenshots'))) issues.push({ route, type: 'missing-ai-design-disclosure' });
   if (route === '/') {
     for (const project of content.projects) if (projectCounts.get(project.id) !== 1) issues.push({ route, type: 'project-not-shown-once', project: project.id, count: projectCounts.get(project.id) ?? 0 });
     for (const id of ['skills', 'experience', 'selected-work']) if (!sectionIds.has(id)) issues.push({ route, type: 'missing-section', id });

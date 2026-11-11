@@ -1,15 +1,17 @@
 import { describe, expect, it } from 'vitest';
+import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { projects, profile, experience, personalRoutes, getProject, resumePath } from '../content/portfolio';
 import { skillGroups, learningFocus } from '../content/skills';
+import { aiDesignGallery, aiDesignSteps, stitchStudies, aiDesignDisclosure } from '../content/ai-design';
 
 const app = process.cwd();
 describe('Surjeet personal portfolio', () => {
-  it('features five unique personal projects across twelve content routes', () => {
+  it('features five unique personal projects across thirteen content routes', () => {
     expect(projects).toHaveLength(5);
     expect(new Set(projects.map(project => project.slug)).size).toBe(5);
-    expect(personalRoutes).toHaveLength(12);
+    expect(personalRoutes).toHaveLength(13);
     expect(projects.map(project => project.slug)).toEqual(['workforce-payroll','offline-finance','diskdoom','code-snippet-manager','field-service']);
   });
   it('provides real local illustrations with an honest image label', () => {
@@ -51,7 +53,8 @@ describe('Surjeet personal portfolio', () => {
     const pdf=readFileSync(path.join(app,'public',resumePath));
     expect(pdf.subarray(0,5).toString()).toBe('%PDF-');
     expect(resumePath).toBe('/Surjeet_Resume.pdf');
-    expect(pdf.length).toBeGreaterThan(1000);
+    expect(pdf.length).toBe(4934);
+    expect(createHash('sha256').update(pdf).digest('hex')).toBe('1cb390c528b0425bfb9fae825d38efd01efe5cb6df8fd70b0cfb33a1fdf2be2d');
     expect(existsSync(path.join(app, 'public/Surjeet_Full_Stack_Resume.pdf'))).toBe(false);
   });
   it('shows the project collection once and puts skills and experience before it', () => {
@@ -70,6 +73,20 @@ describe('Surjeet personal portfolio', () => {
     expect(learningFocus.topics).toEqual(['Go', 'Distributed systems']);
     expect(skillGroups.flatMap(group => [...group.skills])).not.toContain('Go');
     expect(learningFocus.direction).toBe('Moving toward cloud engineering');
+  });
+  it('documents an honest AI-assisted design workflow and local images', () => {
+    expect(aiDesignSteps).toHaveLength(4);
+    expect(stitchStudies).toHaveLength(3);
+    expect(stitchStudies.map(study => study.url)).toEqual([
+      'https://stitch.google.com/projects/5513451392199853223',
+      'https://stitch.google.com/projects/2371316225682304226',
+      'https://stitch.google.com/projects/13573221424900352535',
+    ]);
+    expect(aiDesignGallery).toHaveLength(10);
+    for (const item of aiDesignGallery) expect(existsSync(path.join(app, 'public', item.src))).toBe(true);
+    expect(aiDesignDisclosure).toMatch(/not shipped-product screenshots/i);
+    expect(aiDesignDisclosure).toMatch(/ChatGPT and Stitch support ideation and iteration/i);
+    expect(aiDesignDisclosure).toMatch(/I make the product, hierarchy, curation, and implementation decisions/i);
   });
   it('has no old client media or agency content in routed pages', () => {
     expect(existsSync(path.join(app,'public/assets/wf'))).toBe(false);

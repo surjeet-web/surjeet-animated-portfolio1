@@ -31,14 +31,14 @@ export const profile = source.profile;
 export const about = source.about;
 export const capabilities = source.capabilities;
 export const contact = source.contact;
-export const experience = [source.experience[0], source.experience[2], source.experience[1]];
+export const experience = source.experience;
 export const getProject = (slug: string) => projects.find((project) => project.slug === slug);
-export const resumePath = '/Surjeet_Full_Stack_Resume.pdf';
+export const resumePath = source.profile.resumePath;
 export const personalRoutes = ['/', '/about', '/services', '/experience', '/work', '/contact', '/privacy', ...projects.map((project) => `/work/${project.slug}`)];
 
 export const aboutFaqs = [
-  { question: 'What kind of role are you looking for?', answer: 'Junior full-stack, frontend developer, or software engineering trainee roles where I can contribute to useful software and learn from experienced teammates.' },
-  { question: 'What are you studying?', answer: 'I’m pursuing a Bachelor of Computer Applications at Shoolini University. My interests include software engineering, data modeling, and practical development tooling.' },
+  { question: 'What kind of role are you looking for?', answer: 'Junior full-stack roles and trainee cloud engineering opportunities where I can contribute my internship and project experience while learning from experienced teammates.' },
+  { question: 'What are you studying?', answer: 'I’m pursuing a Bachelor of Computer Applications at Shoolini University. I’m currently learning Go and distributed systems as I work toward a cloud engineering path; these are learning areas, not professional cloud experience.' },
   { question: 'How do you use AI in your work?', answer: 'I use Claude Code, MCP integrations, custom skills, and n8n to support repeatable development tasks. The implementation still needs review, debugging, and validation; I do not treat generated code as automatically correct.' },
 ];
 export const projectFaqs = [

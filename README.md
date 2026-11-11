@@ -7,8 +7,8 @@ The repository is private. The source reference, research notes and previous-bui
 ## Run
 
 ```sh
-gh repo clone surjeet-web/surjeet-animated-portfolio
-cd surjeet-animated-portfolio
+gh repo clone surjeet-web/surjeet-animated-portfolio1
+cd surjeet-animated-portfolio1
 npm ci
 npm run dev
 ```
@@ -24,17 +24,19 @@ Dev and production both use loopback port 3100; stop one before starting the oth
 
 ## Personal content
 
-- Surjeet branding, New Delhi location, focused junior full-stack positioning.
+- Surjeet branding, New Delhi location, full-stack foundation and an entry-level cloud-engineering direction.
+- Go and distributed systems are explicitly marked as current learning areas.
+- One homepage project collection, with each of the five projects shown once.
 - Five selected projects: Workforce & Payroll, Offline Finance, DiskDoom, Code Snippet Manager, and Field Service.
 - Full case studies with implementation highlights, technology, and honest scope notes.
 - Public GitHub links only; private projects have generic descriptions and no source disclosure.
-- IQSetters, Shyam Technical, and Offshoot experience; BCA education; supplied achievements.
-- Downloadable one-page résumé at `/Surjeet_Full_Stack_Resume.pdf`.
+- IQSetters full-stack internship only; BCA education and supplied achievements.
+- Downloadable supplied résumé at `/Surjeet_Resume.pdf`; the previous résumé URL redirects here.
 - Email, GitHub, LinkedIn and copy-email contact actions. No form backend or automatic submissions.
 
 ## Animations preserved
 
-Full-canvas split-letter hero, animated SVG line, floating badges, eye-following mascot, scroll-assembled icons, perspective project stage, moving marquees, horizontal project story, draggable card flips, animated process tabs, magnetic controls, smooth desktop scrolling, mobile menu, page-transition bands, motion pause and reduced-motion fallbacks.
+Full-canvas split-letter hero, animated SVG line, floating badges, eye-following mascot, restrained section and project reveals, magnetic controls, smooth desktop scrolling, mobile menu, page-transition bands, motion pause and reduced-motion fallbacks. Repeated homepage project stages, horizontal story, and flipping deck are no longer mounted; the homepage now prioritizes the objective, skills, IQSetters experience and one project collection. Animated process tabs remain on the detailed skills page.
 
 ## Content and visuals
 
@@ -54,7 +56,9 @@ Home `/`, projects `/work`, five `/work/[slug]` case studies, `/about`, `/servic
 - `components/sections/experience-timeline.tsx`: employment timeline.
 - `components/widgets/contact-links.tsx`: direct contact controls.
 - `styles/personal.css`: personal typography/layout adjustments over the retained animation-led design system.
-- `public/Surjeet_Full_Stack_Resume.pdf`: résumé download.
+- `content/skills.ts` and `components/sections/skills-stack.tsx`: explicit tech stack and current learning focus.
+- `styles/focused-home.css`: simplified homepage layout.
+- `public/Surjeet_Resume.pdf`: current supplied résumé download.
 
 ## Verify
 

@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { Arrow } from '@/components/primitives/ui';
 
-const links = [{ href: '/work', label: 'Projects', count: '↗' }, { href: '/about', label: 'About' }, { href: '/services', label: 'Skills' }, { href: '/experience', label: 'Experience' }];
+const links = [{ href: '/#selected-work', label: 'Projects', count: '↗' }, { href: '/#skills', label: 'Skills' }, { href: '/#experience', label: 'Experience' }, { href: '/about', label: 'About' }];
 
 export function Header() {
   const path = usePathname();

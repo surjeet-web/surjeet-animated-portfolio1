@@ -22,6 +22,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      { source: '/Surjeet_Full_Stack_Resume.pdf', destination: '/Surjeet_Resume.pdf', permanent: true },
       { source: '/index.html', destination: '/', permanent: true },
       { source: '/about-us.html', destination: '/about', permanent: true },
       { source: '/services.html', destination: '/services', permanent: true },

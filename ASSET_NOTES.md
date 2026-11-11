@@ -16,7 +16,7 @@ The five SVGs under `public/assets/portfolio/` are newly authored conceptual ill
 
 ## Resume and personal data
 
-`public/Surjeet_Full_Stack_Resume.pdf` contains the owner's professional contact details and intentionally forms part of the portfolio. Private repository research, source archives, backups, and customer/employee records are not included in this repository.
+`public/Surjeet_Resume.pdf` is the updated PDF supplied by the owner and contains their professional contact details. It intentionally forms part of the portfolio; the previous download URL redirects to this file. Private repository research, source archives, backups, and customer/employee records are not included in this repository.
 
 ## Referenced projects
 

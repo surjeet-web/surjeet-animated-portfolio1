@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { projects, profile, experience, personalRoutes, getProject, resumePath } from '../content/portfolio';
+import { skillGroups, learningFocus } from '../content/skills';
 
 const app = process.cwd();
 describe('Surjeet personal portfolio', () => {
@@ -39,12 +40,36 @@ describe('Surjeet personal portfolio', () => {
     expect(profile.name).toBe('Surjeet');
     expect(profile.email).toBe('codieshiv.web@gmail.com');
     expect(experience.find(job=>job.company==='IQSetters')?.dates).toBe('Dec 2025 – Jun 2026');
-    expect(experience).toHaveLength(3);
+    expect(experience).toHaveLength(1);
+    expect(experience[0].company).toBe('IQSetters');
+    expect(experience[0].bullets).toHaveLength(3);
+    expect(JSON.stringify({ profile, experience })).not.toMatch(/Shyam|Offshoot|customer support|sales/i);
+    expect(profile.intro).toMatch(/learning Go and distributed systems/);
+    expect(profile.intro).toMatch(/cloud engineering/);
   });
   it('ships the actual one-page resume PDF', () => {
     const pdf=readFileSync(path.join(app,'public',resumePath));
     expect(pdf.subarray(0,5).toString()).toBe('%PDF-');
-    expect(pdf.length).toBeGreaterThan(5000);
+    expect(resumePath).toBe('/Surjeet_Resume.pdf');
+    expect(pdf.length).toBeGreaterThan(1000);
+    expect(existsSync(path.join(app, 'public/Surjeet_Full_Stack_Resume.pdf'))).toBe(false);
+  });
+  it('shows the project collection once and puts skills and experience before it', () => {
+    const homepage = readFileSync(path.join(app, 'app/page.tsx'), 'utf8');
+    expect(homepage.match(/projects\.map\(/g)).toHaveLength(1);
+    expect(homepage.match(/id="selected-work"/g)).toHaveLength(1);
+    expect(homepage).not.toMatch(/WorkJourney|ProjectDeck|feature-stage|BrandStory|ProcessPlayground|ServicesOverview/);
+    expect(homepage).toContain('<SkillsStack />');
+    expect(homepage).toContain('<ExperienceTimeline compact />');
+    expect(homepage.indexOf('<SkillsStack />')).toBeLessThan(homepage.indexOf('id="selected-work"'));
+    expect(homepage.indexOf('<ExperienceTimeline compact />')).toBeLessThan(homepage.indexOf('id="selected-work"'));
+  });
+  it('separates current learning from established skills', () => {
+    expect(skillGroups).toHaveLength(4);
+    expect(learningFocus.label).toBe('Currently learning');
+    expect(learningFocus.topics).toEqual(['Go', 'Distributed systems']);
+    expect(skillGroups.flatMap(group => [...group.skills])).not.toContain('Go');
+    expect(learningFocus.direction).toBe('Moving toward cloud engineering');
   });
   it('has no old client media or agency content in routed pages', () => {
     expect(existsSync(path.join(app,'public/assets/wf'))).toBe(false);
